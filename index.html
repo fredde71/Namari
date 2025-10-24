@@ -2,16 +2,157 @@
 <html lang="sv">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Namari – Natur & Kod</title>
-    <meta
-      name="description"
-      content="Namari – Natur & Kod. Manuell huggning & röjning samt stilrena hemsidor för mindre företag."
-    />
-    <link rel="icon" href="logo.png" />
+    <meta name="description" content="Manuell huggning, röjning och snygga hemsidor för mindre företag. Namari – Fredrik Wästerberg." />
+    <link rel="icon" href="public/logo.png" />
+    <!-- Tailwind via CDN så vi slipper bygga något -->
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="antialiased">
-    <div id="root"></div>
-    <script type="module" src="./src/main.jsx"></script>
+
+  <body class="bg-emerald-50 text-slate-900 antialiased">
+    <main class="max-w-4xl mx-auto p-6 md:p-10">
+      <header class="mb-10">
+        <h1 class="text-4xl font-extrabold text-emerald-800 leading-tight">
+          Namari <span class="text-slate-800">– Natur & Kod</span>
+        </h1>
+        <p class="text-lg text-slate-700 mt-3 max-w-prose">
+          Jag heter <span class="font-semibold">Fredrik Wästerberg</span> och driver <span class="font-semibold">Namari</span>.
+          Jag hjälper både i skogen med manuell huggning/röjning och på webben med stilrena, snabba hemsidor för mindre företag.
+        </p>
+      </header>
+
+      <section class="bg-white border border-emerald-100 rounded-2xl shadow-sm p-6 mb-10">
+        <h2 class="text-2xl font-bold text-slate-900 mb-2">Tjänster</h2>
+        <p class="text-slate-700 mb-6">
+          Två ben – samma kvalitetskänsla. Välj det du behöver nedan.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <article class="border border-emerald-100 rounded-xl p-5 bg-emerald-50/50">
+            <h3 class="text-xl font-semibold flex items-start gap-2 text-slate-900">
+              <span class="text-emerald-700 font-bold">•</span> Naturarbete
+            </h3>
+            <p class="text-slate-700 text-sm mt-2">
+              Manuell huggning, röjning och selektiv trädfällning med fokus på säkerhet och naturvård.
+            </p>
+            <ul class="text-slate-700 text-sm mt-4 space-y-1">
+              <li>• Röjning av sly och stigar</li>
+              <li>• Vindfällen & riskträd</li>
+              <li>• Gårdar, torp & stengärdsgårdar</li>
+            </ul>
+            <p class="mt-4 text-sm">
+              <span class="font-medium text-slate-900">Vill du ha platsbesök?</span><br/>
+              Jag kommer gärna ut och tittar innan jag lämnar pris.
+            </p>
+          </article>
+
+          <article class="border border-emerald-100 rounded-xl p-5 bg-white">
+            <h3 class="text-xl font-semibold flex items-start gap-2 text-slate-900">
+              <span class="text-emerald-700 font-bold">•</span> Webb & Design
+            </h3>
+            <p class="text-slate-700 text-sm mt-2">
+              Snabba, tillgängliga hemsidor med tydlig varumärkesprofil. Hosting, domän & support ingår vid behov.
+            </p>
+            <ul class="text-slate-700 text-sm mt-4 space-y-1">
+              <li>• One-pager eller liten sajt</li>
+              <li>• Logotyp & grundprofil</li>
+              <li>• SEO-grund & enkel analys</li>
+            </ul>
+            <p class="mt-4 text-sm">
+              <span class="font-medium text-slate-900">Vill du ha offert?</span><br/>
+              Säg vad du vill visa upp så tar jag fram ett upplägg.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="bg-white border border-emerald-100 rounded-2xl shadow-sm p-6 mb-10">
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">Om Namari</h2>
+        <p class="text-slate-700 text-sm leading-relaxed">
+          Namari står för balans mellan natur och teknik. Jag tar samma noggrannhet med mig ut i skogen som när jag designar en hemsida –
+          ordning, säkerhet och ett lugnt tempo som ger ett snyggt resultat.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-4 text-sm mt-6">
+          <div class="rounded-xl border border-emerald-100 bg-emerald-50/60 p-4">
+            <p class="font-semibold text-slate-900">Område</p>
+            <p class="text-slate-700">Västmanland med omnejd</p>
+          </div>
+          <div class="rounded-xl border border-emerald-100 bg-emerald-50/60 p-4">
+            <p class="font-semibold text-slate-900">Uppdrag</p>
+            <p class="text-slate-700">Fast pris eller löpande</p>
+          </div>
+          <div class="rounded-xl border border-emerald-100 bg-emerald-50/60 p-4">
+            <p class="font-semibold text-slate-900">Trygghet</p>
+            <p class="text-slate-700">Försäkrad & F-skatt</p>
+          </div>
+        </div>
+
+        <div class="rounded-xl border border-emerald-100 bg-emerald-50/40 p-4 text-sm mt-6">
+          <p class="font-bold text-slate-900">Snabbt om mig</p>
+          <p class="text-slate-700 mt-1">
+            Fredrik Wästerberg – lugn, strukturerad och lösningsorienterad.
+            Jag trivs bäst när jag får skapa nytta – i naturen eller på webben.
+          </p>
+        </div>
+      </section>
+
+      <section class="bg-white border border-emerald-100 rounded-2xl shadow-sm p-6 mb-10">
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">Kontakt</h2>
+        <p class="text-slate-700 text-sm leading-relaxed">
+          Beskriv kort vad du behöver hjälp med så återkommer jag normalt samma dag.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 mt-6 text-sm text-slate-700">
+          <div class="space-y-2">
+            <p>
+              <span class="font-medium text-slate-900">Telefon:</span><br/>
+              <a class="text-emerald-700 font-semibold" href="tel:+46761390199">0761-390199</a>
+            </p>
+            <p>
+              <span class="font-medium text-slate-900">E-post:</span><br/>
+              <a class="text-emerald-700 font-semibold" href="mailto:fredrik@namari.se">fredrik@namari.se</a>
+            </p>
+            <p>
+              <span class="font-medium text-slate-900">Område:</span><br/>
+              Västmanland, Sverige
+            </p>
+            <div class="rounded-lg border border-emerald-100 bg-emerald-50/70 p-3 text-[0.85rem] leading-snug">
+              <p class="font-medium text-slate-900">Offert & platsbesök</p>
+              <p class="text-slate-700">
+                Jag kommer gärna ut och tittar innan jag lämnar ett pris.
+                Kostnadsfritt runt Skåne.
+              </p>
+            </div>
+          </div>
+
+          <form class="space-y-3">
+            <input class="w-full rounded-xl border border-emerald-200 bg-white/90 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Ditt namn" />
+            <input class="w-full rounded-xl border border-emerald-200 bg-white/90 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500" placeholder="E-post" type="email" />
+            <input class="w-full rounded-xl border border-emerald-200 bg-white/90 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Telefon" />
+            <select class="w-full rounded-xl border border-emerald-200 bg-white/90 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500">
+              <option>Ämne</option>
+              <option>Naturarbete</option>
+              <option>Webb & Design</option>
+              <option>Annat</option>
+            </select>
+            <textarea class="w-full rounded-xl border border-emerald-200 bg-white/90 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500" rows="4" placeholder="Meddelande"></textarea>
+            <button class="w-full rounded-xl bg-emerald-700 text-white px-6 py-3 font-medium shadow hover:bg-emerald-800 transition">
+              Skicka förfrågan
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <footer class="text-center text-xs text-slate-600 py-10">
+        © <span id="year"></span> Namari – Fredrik Wästerberg
+      </footer>
+    </main>
+
+    <script>
+      // Sätter året i footern
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
