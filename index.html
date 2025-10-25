@@ -4,154 +4,444 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Namari – Natur & Kod</title>
-    <meta name="description" content="Manuell huggning, röjning och snygga hemsidor för mindre företag. Namari – Fredrik Wästerberg." />
+    <meta name="description" content="Namari – Natur & Kod. Skogsröjning, selektiv huggning och stilrena hemsidor för små företag. Fredrik Wästerberg, Västmanland." />
     <link rel="icon" href="public/logo.png" />
-    <!-- Tailwind via CDN så vi slipper bygga något -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      /* mjuk skugga och rundning genomgående */
+      .card {
+        @apply rounded-2xl bg-white/90 backdrop-blur border border-emerald-200/50 shadow-[0_20px_40px_rgba(0,0,0,0.07)];
+      }
+      .pill {
+        @apply inline-flex items-center gap-2 rounded-full bg-emerald-900/90 text-emerald-50 text-xs font-medium leading-none px-3 py-1 shadow;
+      }
+      .section-title {
+        @apply text-3xl md:text-4xl font-extrabold text-emerald-950 tracking-tight;
+      }
+      .section-text {
+        @apply text-slate-700 text-lg leading-relaxed max-w-prose;
+      }
+    </style>
+
+    <!-- enkel scroll till sektioner -->
+    <script>
+      document.addEventListener("click", (e) => {
+        const link = e.target.closest("a[href^='#']");
+        if (!link) return;
+        const id = link.getAttribute("href").slice(1);
+        const el = document.getElementById(id);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    </script>
   </head>
 
   <body class="bg-emerald-50 text-slate-900 antialiased">
-    <main class="max-w-4xl mx-auto p-6 md:p-10">
-      <header class="mb-10">
-        <h1 class="text-4xl font-extrabold text-emerald-800 leading-tight">
-          Namari <span class="text-slate-800">– Natur & Kod</span>
-        </h1>
-        <p class="text-lg text-slate-700 mt-3 max-w-prose">
-          Jag heter <span class="font-semibold">Fredrik Wästerberg</span> och driver <span class="font-semibold">Namari</span>.
-          Jag hjälper både i skogen med manuell huggning/röjning och på webben med stilrena, snabba hemsidor för mindre företag.
-        </p>
-      </header>
-
-      <section class="bg-white border border-emerald-100 rounded-2xl shadow-sm p-6 mb-10">
-        <h2 class="text-2xl font-bold text-slate-900 mb-2">Tjänster</h2>
-        <p class="text-slate-700 mb-6">
-          Två ben – samma kvalitetskänsla. Välj det du behöver nedan.
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-6">
-          <article class="border border-emerald-100 rounded-xl p-5 bg-emerald-50/50">
-            <h3 class="text-xl font-semibold flex items-start gap-2 text-slate-900">
-              <span class="text-emerald-700 font-bold">•</span> Naturarbete
-            </h3>
-            <p class="text-slate-700 text-sm mt-2">
-              Manuell huggning, röjning och selektiv trädfällning med fokus på säkerhet och naturvård.
-            </p>
-            <ul class="text-slate-700 text-sm mt-4 space-y-1">
-              <li>• Röjning av sly och stigar</li>
-              <li>• Vindfällen & riskträd</li>
-              <li>• Gårdar, torp & stengärdsgårdar</li>
-            </ul>
-            <p class="mt-4 text-sm">
-              <span class="font-medium text-slate-900">Vill du ha platsbesök?</span><br/>
-              Jag kommer gärna ut och tittar innan jag lämnar pris.
-            </p>
-          </article>
-
-          <article class="border border-emerald-100 rounded-xl p-5 bg-white">
-            <h3 class="text-xl font-semibold flex items-start gap-2 text-slate-900">
-              <span class="text-emerald-700 font-bold">•</span> Webb & Design
-            </h3>
-            <p class="text-slate-700 text-sm mt-2">
-              Snabba, tillgängliga hemsidor med tydlig varumärkesprofil. Hosting, domän & support ingår vid behov.
-            </p>
-            <ul class="text-slate-700 text-sm mt-4 space-y-1">
-              <li>• One-pager eller liten sajt</li>
-              <li>• Logotyp & grundprofil</li>
-              <li>• SEO-grund & enkel analys</li>
-            </ul>
-            <p class="mt-4 text-sm">
-              <span class="font-medium text-slate-900">Vill du ha offert?</span><br/>
-              Säg vad du vill visa upp så tar jag fram ett upplägg.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="bg-white border border-emerald-100 rounded-2xl shadow-sm p-6 mb-10">
-        <h2 class="text-2xl font-bold text-slate-900 mb-4">Om Namari</h2>
-        <p class="text-slate-700 text-sm leading-relaxed">
-          Namari står för balans mellan natur och teknik. Jag tar samma noggrannhet med mig ut i skogen som när jag designar en hemsida –
-          ordning, säkerhet och ett lugnt tempo som ger ett snyggt resultat.
-        </p>
-
-        <div class="grid md:grid-cols-3 gap-4 text-sm mt-6">
-          <div class="rounded-xl border border-emerald-100 bg-emerald-50/60 p-4">
-            <p class="font-semibold text-slate-900">Område</p>
-            <p class="text-slate-700">Västmanland med omnejd</p>
+    <!-- NAVBAR -->
+    <header class="fixed top-0 left-0 right-0 z-50 border-b border-emerald-900/10 bg-emerald-950/70 backdrop-blur text-emerald-50">
+      <div class="max-w-6xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6">
+        <!-- Logo + namn -->
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 bg-emerald-100 rounded-xl flex items-center justify-center overflow-hidden ring-1 ring-white/20 shadow">
+            <img src="public/logo.png" alt="Namari" class="w-full h-full object-contain" onerror="this.style.display='none'" />
           </div>
-          <div class="rounded-xl border border-emerald-100 bg-emerald-50/60 p-4">
-            <p class="font-semibold text-slate-900">Uppdrag</p>
-            <p class="text-slate-700">Fast pris eller löpande</p>
-          </div>
-          <div class="rounded-xl border border-emerald-100 bg-emerald-50/60 p-4">
-            <p class="font-semibold text-slate-900">Trygghet</p>
-            <p class="text-slate-700">Försäkrad & F-skatt</p>
+          <div class="font-extrabold tracking-wide text-base leading-tight">
+            <div>NAMARI</div>
+            <div class="text-[0.7rem] font-normal text-emerald-200 leading-none">Natur & Kod</div>
           </div>
         </div>
 
-        <div class="rounded-xl border border-emerald-100 bg-emerald-50/40 p-4 text-sm mt-6">
-          <p class="font-bold text-slate-900">Snabbt om mig</p>
-          <p class="text-slate-700 mt-1">
-            Fredrik Wästerberg – lugn, strukturerad och lösningsorienterad.
-            Jag trivs bäst när jag får skapa nytta – i naturen eller på webben.
-          </p>
-        </div>
-      </section>
+        <!-- länkar -->
+        <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-emerald-100">
+          <a class="hover:text-white" href="#tjanster">Tjänster</a>
+          <a class="hover:text-white" href="#om">Om</a>
+          <a class="hover:text-white" href="#kontakt">Kontakt</a>
+        </nav>
 
-      <section class="bg-white border border-emerald-100 rounded-2xl shadow-sm p-6 mb-10">
-        <h2 class="text-2xl font-bold text-slate-900 mb-4">Kontakt</h2>
-        <p class="text-slate-700 text-sm leading-relaxed">
-          Beskriv kort vad du behöver hjälp med så återkommer jag normalt samma dag.
-        </p>
+        <!-- CTA -->
+        <a
+          href="#kontakt"
+          class="hidden sm:inline-flex items-center rounded-xl bg-emerald-400 text-emerald-950 text-sm font-semibold px-4 py-2 shadow hover:bg-emerald-300 transition"
+        >
+          Kostnadsfri offert
+        </a>
+      </div>
+    </header>
 
-        <div class="grid md:grid-cols-2 gap-6 mt-6 text-sm text-slate-700">
-          <div class="space-y-2">
-            <p>
-              <span class="font-medium text-slate-900">Telefon:</span><br/>
-              <a class="text-emerald-700 font-semibold" href="tel:+46761390199">0761-390199</a>
+    <main class="pt-16">
+      <!-- HERO -->
+      <section id="home" class="relative isolate bg-emerald-950 text-emerald-50">
+        <!-- bakgrundsbild skog -->
+        <div
+          class="absolute inset-0 -z-10 bg-cover bg-center opacity-40"
+          style="background-image:url('https://images.unsplash.com/photo-1508766206392-8bd5cf550d1b?auto=format&fit=crop&w=1600&q=80');"
+        ></div>
+
+        <!-- gradient overlay -->
+        <div class="absolute inset-0 -z-10 bg-gradient-to-b from-emerald-900/60 via-emerald-950/80 to-emerald-950"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="pill mb-4">
+              <span class="inline-block w-2 h-2 bg-emerald-300 rounded-full"></span>
+              <span>F-skattsedel · Försäkrad · Kommer när jag sagt</span>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-white tracking-[-0.04em]">
+              Jag gör det ordentligt.<br />
+              I skogen 🌲 och på webben 💻
+            </h1>
+
+            <p class="text-lg text-emerald-100 leading-relaxed mt-6 max-w-prose">
+              Jag heter <span class="font-semibold text-white">Fredrik Wästerberg</span> och driver <span class="font-semibold text-white">Namari</span>.
+              Jag hjälper dig med manuell huggning, röjning och säker trädfällning — och jag bygger också snygga, snabba hemsidor till mindre företag som vill se proffsiga ut utan massa krångel.
             </p>
-            <p>
-              <span class="font-medium text-slate-900">E-post:</span><br/>
-              <a class="text-emerald-700 font-semibold" href="mailto:fredrik@namari.se">fredrik@namari.se</a>
-            </p>
-            <p>
-              <span class="font-medium text-slate-900">Område:</span><br/>
-              Västmanland, Sverige
-            </p>
-            <div class="rounded-lg border border-emerald-100 bg-emerald-50/70 p-3 text-[0.85rem] leading-snug">
-              <p class="font-medium text-slate-900">Offert & platsbesök</p>
-              <p class="text-slate-700">
-                Jag kommer gärna ut och tittar innan jag lämnar ett pris.
-                Kostnadsfritt runt Skåne.
-              </p>
+
+            <div class="flex flex-wrap gap-4 mt-10">
+              <a
+                href="#tjanster"
+                class="inline-flex items-center rounded-xl bg-emerald-400 text-emerald-950 font-semibold px-5 py-3 text-sm shadow hover:bg-emerald-300 transition"
+              >
+                Se vad jag gör
+              </a>
+              <a
+                href="#kontakt"
+                class="inline-flex items-center rounded-xl border border-emerald-200/40 text-emerald-50 font-semibold px-5 py-3 text-sm shadow hover:bg-white/10 transition"
+              >
+                Begär offert
+              </a>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-6 text-sm text-emerald-200 mt-10">
+              <div class="flex items-start gap-3">
+                <div class="text-emerald-300 text-xl leading-none">✓</div>
+                <div>
+                  <div class="font-semibold text-white">Manuellt skogsarbete</div>
+                  <div class="text-emerald-200/80">Röjning, sly, riskträd, gårdsmiljö</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="text-emerald-300 text-xl leading-none">✓</div>
+                <div>
+                  <div class="font-semibold text-white">Hemsidor som känns på riktigt</div>
+                  <div class="text-emerald-200/80">One-pager, logga, domän, allt fixat</div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <form class="space-y-3">
-            <input class="w-full rounded-xl border border-emerald-200 bg-white/90 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Ditt namn" />
-            <input class="w-full rounded-xl border border-emerald-200 bg-white/90 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500" placeholder="E-post" type="email" />
-            <input class="w-full rounded-xl border border-emerald-200 bg-white/90 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Telefon" />
-            <select class="w-full rounded-xl border border-emerald-200 bg-white/90 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500">
-              <option>Ämne</option>
-              <option>Naturarbete</option>
-              <option>Webb & Design</option>
-              <option>Annat</option>
-            </select>
-            <textarea class="w-full rounded-xl border border-emerald-200 bg-white/90 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500" rows="4" placeholder="Meddelande"></textarea>
-            <button class="w-full rounded-xl bg-emerald-700 text-white px-6 py-3 font-medium shadow hover:bg-emerald-800 transition">
-              Skicka förfrågan
-            </button>
-          </form>
+          <!-- sidokort -->
+          <div class="space-y-6">
+            <div class="card p-6">
+              <div class="text-xs font-semibold text-emerald-700 uppercase tracking-wide mb-2">Skog & Mark</div>
+              <div class="text-lg font-bold text-emerald-900 leading-snug">
+                Röjning, fällning & omtanke om platsen
+              </div>
+              <p class="text-sm text-slate-700 mt-3 leading-relaxed">
+                Jag tar ner sly, röjer stig, tar bort vindfällen, och löser "det där farliga trädet som hänger över garaget". Alltid varsamt, alltid säkert.
+              </p>
+            </div>
+
+            <div class="card p-6">
+              <div class="text-xs font-semibold text-emerald-700 uppercase tracking-wide mb-2">Webb & Profil</div>
+              <div class="text-lg font-bold text-emerald-900 leading-snug">
+                Din verksamhet, presenterad snyggt
+              </div>
+              <p class="text-sm text-slate-700 mt-3 leading-relaxed">
+                Behöver du en enkel, tydlig hemsida som gör att kunderna fattar direkt vad du gör? Jag bygger och publicerar den åt dig. Du äger den själv.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <footer class="text-center text-xs text-slate-600 py-10">
-        © <span id="year"></span> Namari – Fredrik Wästerberg
-      </footer>
+      <!-- TJÄNSTER -->
+      <section id="tjanster" class="bg-emerald-50 py-20 md:py-28">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+            <div class="max-w-xl">
+              <h2 class="section-title">Tjänster</h2>
+              <p class="section-text mt-4">
+                Två områden. Samma arbetsmoral: lugnt, säkert, ordentligt.
+              </p>
+            </div>
+
+            <div class="text-sm text-slate-600 bg-white/70 border border-emerald-200 rounded-xl shadow px-4 py-3 max-w-xs">
+              <div class="font-semibold text-slate-900">Område</div>
+              <div>Västmanland med omnejd</div>
+              <div class="font-semibold text-slate-900 mt-3">Prismodell</div>
+              <div>Fast pris eller löpande</div>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 mt-14">
+            <!-- Naturarbete -->
+            <article class="card p-8">
+              <div class="flex items-center gap-3 text-emerald-800 font-semibold text-sm">
+                <div class="w-8 h-8 rounded-lg bg-emerald-700 text-white flex items-center justify-center text-[0.7rem] font-bold shadow">
+                  🌲
+                </div>
+                <span>Naturarbete</span>
+              </div>
+
+              <h3 class="text-2xl font-bold text-emerald-950 mt-4 leading-tight">
+                Röjning, sly, riskträd & gårdsmiljö
+              </h3>
+              <p class="text-slate-700 text-base leading-relaxed mt-3">
+                Manuell huggning och selektiv röjning. Jag hjälper dig hålla efter marker, stigar, torp och tomt utan att förstöra känslan.
+              </p>
+
+              <ul class="text-slate-700 text-sm leading-relaxed mt-6 space-y-2">
+                <li class="flex gap-2"><span class="text-emerald-600 font-bold">•</span> Vindfällen och farliga hängare</li>
+                <li class="flex gap-2"><span class="text-emerald-600 font-bold">•</span> Slyröjning runt byggnader, stengärdsgårdar, åkrar</li>
+                <li class="flex gap-2"><span class="text-emerald-600 font-bold">•</span> Röjning av skogsstigar & uppfarter</li>
+              </ul>
+
+              <div class="mt-8">
+                <a
+                  href="#kontakt"
+                  class="inline-flex items-center rounded-xl bg-emerald-700 text-white font-semibold px-5 py-3 text-sm shadow hover:bg-emerald-800 transition"
+                >
+                  Boka platsbesök
+                </a>
+              </div>
+            </article>
+
+            <!-- Webb & Design -->
+            <article class="card p-8">
+              <div class="flex items-center gap-3 text-emerald-800 font-semibold text-sm">
+                <div class="w-8 h-8 rounded-lg bg-emerald-700 text-white flex items-center justify-center text-[0.7rem] font-bold shadow">
+                  💻
+                </div>
+                <span>Webb & Profil</span>
+              </div>
+
+              <h3 class="text-2xl font-bold text-emerald-950 mt-4 leading-tight">
+                En snygg hemsida som faktiskt gör jobbet
+              </h3>
+              <p class="text-slate-700 text-base leading-relaxed mt-3">
+                Jag bygger en enkel hemsida som förklarar ditt erbjudande snabbt. Mobilanpassad, snabb, lätt för kunder att kontakta dig.
+              </p>
+
+              <ul class="text-slate-700 text-sm leading-relaxed mt-6 space-y-2">
+                <li class="flex gap-2"><span class="text-emerald-600 font-bold">•</span> One-pager eller liten fler-sida</li>
+                <li class="flex gap-2"><span class="text-emerald-600 font-bold">•</span> Hjälp med text, ton och struktur</li>
+                <li class="flex gap-2"><span class="text-emerald-600 font-bold">•</span> Egen domän och e-postadress</li>
+              </ul>
+
+              <div class="mt-8">
+                <a
+                  href="#kontakt"
+                  class="inline-flex items-center rounded-xl border border-emerald-300 text-emerald-900 font-semibold px-5 py-3 text-sm shadow hover:bg-white transition"
+                >
+                  Be om offert
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- OM MIG -->
+      <section id="om" class="relative bg-white py-20 md:py-28">
+        <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-emerald-200/40 to-transparent pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-12 items-start">
+          <!-- text -->
+          <div>
+            <h2 class="section-title">Vem är jag?</h2>
+
+            <p class="section-text mt-6">
+              Namari handlar om att göra saker ordentligt. Jag jobbar lugnt, metodiskt och säkert.
+              Jag lämnar inte en gårdsplan full av kaos. Jag lämnar inte en hemsida som känns halv.
+            </p>
+
+            <dl class="mt-10 grid grid-cols-2 gap-4 text-sm max-w-md">
+              <div class="rounded-xl bg-emerald-50 border border-emerald-200 p-4 shadow-sm">
+                <dt class="font-semibold text-emerald-950">Trygghet</dt>
+                <dd class="text-slate-700">F-skatt & försäkring</dd>
+              </div>
+              <div class="rounded-xl bg-emerald-50 border border-emerald-200 p-4 shadow-sm">
+                <dt class="font-semibold text-emerald-950">Område</dt>
+                <dd class="text-slate-700">Västmanland med omnejd</dd>
+              </div>
+            </dl>
+
+            <div class="mt-10 text-sm text-slate-600 leading-relaxed bg-emerald-50 border border-emerald-200 rounded-xl p-4 shadow-sm max-w-md">
+              <div class="font-semibold text-emerald-900 mb-1">
+                “Det viktigaste för mig är att du känner att du kan ringa mig igen.”
+              </div>
+              <div>
+                Jag vill att du ska känna att du kan säga: “Det här löste Fredrik, ta in honom igen.”
+              </div>
+            </div>
+          </div>
+
+          <!-- bildruta -->
+          <div class="relative">
+            <div class="rounded-2xl overflow-hidden ring-1 ring-emerald-900/10 shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
+              <img
+                src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1200&q=80"
+                alt="Skogsmiljö"
+                class="w-full h-full object-cover aspect-[4/3]"
+              />
+            </div>
+
+            <div class="absolute -bottom-6 -left-6 bg-white/90 backdrop-blur border border-emerald-200 rounded-xl shadow-xl p-4 w-[220px] text-sm">
+              <div class="text-xs font-semibold text-emerald-700 uppercase tracking-wide mb-1">
+                Rakt & ärligt
+              </div>
+              <div class="font-bold text-emerald-950 leading-snug">
+                Jag dyker upp när jag sagt att jag ska dyka upp.
+              </div>
+              <div class="text-slate-700 text-[0.8rem] leading-snug mt-2">
+                Och jag lämnar inte innan du fattar vad det kommer kosta.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KONTAKT -->
+      <section id="kontakt" class="bg-emerald-950 text-emerald-50 py-20 md:py-28 relative">
+        <div
+          class="absolute inset-0 -z-10 bg-cover bg-center opacity-[0.12]"
+          style="background-image:url('https://images.unsplash.com/photo-1508979822734-efad5f5f1f1a?auto=format&fit=crop&w=1600&q=80');"
+        ></div>
+        <div class="absolute inset-0 -z-10 bg-gradient-to-br from-emerald-900/70 via-emerald-950 to-black/80"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-12">
+          <!-- vänster: text och direktkontakt -->
+          <div>
+            <div class="pill mb-4">
+              <span class="inline-block w-2 h-2 bg-emerald-300 rounded-full"></span>
+              <span>Snabb kontakt</span>
+            </div>
+
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white leading-tight tracking-tight">
+              Ska vi ta ett första snack?
+            </h2>
+
+            <p class="text-emerald-100 leading-relaxed text-lg mt-5 max-w-prose">
+              Skriv vad du behöver hjälp med, eller ring direkt. Jag återkommer så fort jag kan – oftast samma dag.
+            </p>
+
+            <div class="mt-8 space-y-4 text-[0.95rem]">
+              <div class="flex items-start gap-3">
+                <div class="text-emerald-300 font-bold text-lg leading-none">✆</div>
+                <div>
+                  <div class="text-emerald-200/80 uppercase text-[0.7rem] tracking-wide font-semibold">Telefon</div>
+                  <a class="text-white text-base font-semibold hover:text-emerald-300" href="tel:+46761390199">0761-390199</a>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="text-emerald-300 font-bold text-lg leading-none">@</div>
+                <div>
+                  <div class="text-emerald-200/80 uppercase text-[0.7rem] tracking-wide font-semibold">E-post</div>
+                  <a class="text-white text-base font-semibold hover:text-emerald-300" href="mailto:fredrik@namari.se">fredrik@namari.se</a>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="text-emerald-300 font-bold text-lg leading-none">📍</div>
+                <div>
+                  <div class="text-emerald-200/80 uppercase text-[0.7rem] tracking-wide font-semibold">Område</div>
+                  <div class="text-white text-base font-semibold">Västmanland med omnejd</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 text-xs text-emerald-300/80 leading-relaxed bg-white/5 border border-white/10 rounded-xl p-4 max-w-xs shadow-xl">
+              Jag kommer gärna ut och tittar innan jag lämnar pris. Kostnadsfritt runt Västmanland.
+            </div>
+          </div>
+
+          <!-- höger: formulär -->
+          <div class="card bg-white/10 border-white/10 text-white shadow-xl">
+            <form class="p-6 sm:p-8 space-y-4 text-[0.9rem]">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="flex flex-col gap-1">
+                  <label class="text-emerald-100 text-xs font-semibold tracking-wide uppercase">Namn</label>
+                  <input
+                    class="rounded-lg bg-white/10 border border-white/20 px-3 py-2 text-white placeholder:text-emerald-200/50 outline-none focus:ring-2 focus:ring-emerald-400"
+                    placeholder="Ditt namn"
+                  />
+                </div>
+                <div class="flex flex-col gap-1">
+                  <label class="text-emerald-100 text-xs font-semibold tracking-wide uppercase">E-post</label>
+                  <input
+                    type="email"
+                    class="rounded-lg bg-white/10 border border-white/20 px-3 py-2 text-white placeholder:text-emerald-200/50 outline-none focus:ring-2 focus:ring-emerald-400"
+                    placeholder="din@mail.se"
+                  />
+                </div>
+              </div>
+
+              <div class="flex flex-col gap-1">
+                <label class="text-emerald-100 text-xs font-semibold tracking-wide uppercase">Telefon</label>
+                <input
+                  class="rounded-lg bg-white/10 border border-white/20 px-3 py-2 text-white placeholder:text-emerald-200/50 outline-none focus:ring-2 focus:ring-emerald-400"
+                  placeholder="07.."
+                />
+              </div>
+
+              <div class="flex flex-col gap-1">
+                <label class="text-emerald-100 text-xs font-semibold tracking-wide uppercase">Ämne</label>
+                <select
+                  class="rounded-lg bg-white/10 border border-white/20 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-emerald-400"
+                >
+                  <option class="text-black">Naturarbete</option>
+                  <option class="text-black">Webb & Design</option>
+                  <option class="text-black">Annat</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col gap-1">
+                <label class="text-emerald-100 text-xs font-semibold tracking-wide uppercase">Meddelande</label>
+                <textarea
+                  rows="4"
+                  class="rounded-lg bg-white/10 border border-white/20 px-3 py-2 text-white placeholder:text-emerald-200/50 outline-none focus:ring-2 focus:ring-emerald-400"
+                  placeholder="Berätta kort vad du behöver hjälp med..."
+                ></textarea>
+              </div>
+
+              <button
+                class="w-full rounded-xl bg-emerald-400 text-emerald-950 font-semibold px-5 py-3 text-sm shadow hover:bg-emerald-300 transition"
+                type="button"
+              >
+                Skicka förfrågan
+              </button>
+
+              <p class="text-[0.7rem] text-emerald-300/70 leading-relaxed text-center">
+                Jag svarar så fort jag kan – ofta samma dag.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
 
+    <!-- FOOTER -->
+    <footer class="bg-black text-emerald-200 text-xs">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="text-center md:text-left leading-relaxed">
+          © <span id="year"></span> Namari – Fredrik Wästerberg<br />
+          F-skatt • Försäkrad • Västmanland
+        </div>
+        <nav class="flex items-center gap-6 text-emerald-400 font-medium">
+          <a class="hover:text-white" href="#tjanster">Tjänster</a>
+          <a class="hover:text-white" href="#om">Om</a>
+          <a class="hover:text-white" href="#kontakt">Kontakt</a>
+        </nav>
+      </div>
+    </footer>
+
     <script>
-      // Sätter året i footern
+      // årtal i footer
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
