@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Namari – Skog & Webb, Fredrik Wästerberg</title>
-    <meta name="description" content="Namari – skogsvård, röjning och säkra manuella trädfällningar i Skåne. Samt enkla, tydliga hemsidor för småföretag. Baserad utanför Hörby." />
+    <meta name="description" content="Namari – röjning, sly och säkra trädfällningar i Skåne. Samt tydliga, snabba hemsidor för småföretag. Utgår från Hörby, Skåne." />
     <link rel="icon" href="public/logo.png" />
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -13,7 +13,7 @@
         @apply rounded-2xl bg-white/90 backdrop-blur border border-emerald-200/50 shadow-[0_20px_40px_rgba(0,0,0,0.07)];
       }
       .pill {
-        @apply inline-flex items-center gap-2 rounded-full bg-emerald-900/90 text-emerald-50 text-xs font-medium leading-none px-3 py-1 shadow;
+        @apply inline-flex items-center gap-2 rounded-full bg-emerald-700 text-white text-xs font-medium leading-none px-3 py-1 shadow;
       }
       .section-title {
         @apply text-3xl md:text-4xl font-extrabold text-emerald-950 tracking-tight;
@@ -38,31 +38,31 @@
   </head>
 
   <body class="bg-emerald-50 text-slate-900 antialiased">
-    <!-- NAVBAR -->
-    <header class="fixed top-0 left-0 right-0 z-50 border-b border-emerald-900/10 bg-emerald-950/70 backdrop-blur text-emerald-50">
+    <!-- NAVBAR (ljus istället för mörk nu) -->
+    <header class="fixed top-0 left-0 right-0 z-50 border-b border-emerald-900/10 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 text-emerald-900 shadow-sm">
       <div class="max-w-6xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6">
         <!-- Logo + namn -->
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 bg-emerald-100 rounded-xl flex items-center justify-center overflow-hidden ring-1 ring-white/20 shadow">
+          <div class="w-9 h-9 bg-emerald-100 rounded-xl flex items-center justify-center overflow-hidden ring-1 ring-emerald-800/10 shadow">
             <img src="public/logo.png" alt="Namari" class="w-full h-full object-contain" onerror="this.style.display='none'" />
           </div>
-          <div class="font-extrabold tracking-wide text-base leading-tight">
+          <div class="font-extrabold tracking-wide text-base leading-tight text-emerald-950">
             <div>NAMARI</div>
-            <div class="text-[0.7rem] font-normal text-emerald-200 leading-none">Skog & Webb</div>
+            <div class="text-[0.7rem] font-normal text-emerald-700 leading-none">Skog & Webb</div>
           </div>
         </div>
 
         <!-- länkar -->
-        <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-emerald-100">
-          <a class="hover:text-white" href="#tjanster">Tjänster</a>
-          <a class="hover:text-white" href="#om">Om</a>
-          <a class="hover:text-white" href="#kontakt">Kontakt</a>
+        <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-emerald-900">
+          <a class="hover:text-emerald-700" href="#tjanster">Tjänster</a>
+          <a class="hover:text-emerald-700" href="#om">Om</a>
+          <a class="hover:text-emerald-700" href="#kontakt">Kontakt</a>
         </nav>
 
         <!-- CTA -->
         <a
           href="#kontakt"
-          class="hidden sm:inline-flex items-center rounded-xl bg-emerald-400 text-emerald-950 text-sm font-semibold px-4 py-2 shadow hover:bg-emerald-300 transition"
+          class="hidden sm:inline-flex items-center rounded-xl bg-emerald-700 text-white text-sm font-semibold px-4 py-2 shadow hover:bg-emerald-600 transition"
         >
           Kostnadsfri offert
         </a>
@@ -70,71 +70,71 @@
     </header>
 
     <main class="pt-16">
-      <!-- HERO -->
-      <section id="home" class="relative isolate bg-emerald-950 text-emerald-50">
-        <!-- bakgrundsbild skog -->
+      <!-- HERO (ljusare version) -->
+      <section id="home" class="relative isolate text-emerald-950 bg-gradient-to-b from-emerald-100 via-emerald-50 to-emerald-50">
+        <!-- bakgrundsbild ljus skogston -->
         <div
-          class="absolute inset-0 -z-10 bg-cover bg-center opacity-40"
+          class="absolute inset-0 -z-10 bg-cover bg-center opacity-20"
           style="background-image:url('https://images.unsplash.com/photo-1508766206392-8bd5cf550d1b?auto=format&fit=crop&w=1600&q=80');"
         ></div>
 
-        <!-- gradient overlay -->
-        <div class="absolute inset-0 -z-10 bg-gradient-to-b from-emerald-900/60 via-emerald-950/80 to-emerald-950"></div>
+        <!-- soft overlay -->
+        <div class="absolute inset-0 -z-10 bg-gradient-to-r from-white/80 via-white/60 to-transparent"></div>
 
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <div class="pill mb-4">
-              <span class="inline-block w-2 h-2 bg-emerald-300 rounded-full"></span>
+            <div class="pill mb-4 bg-emerald-700 text-white">
+              <span class="inline-block w-2 h-2 bg-emerald-200 rounded-full"></span>
               <span>F-skatt · Försäkrad · Hörby (Skåne)</span>
             </div>
 
-            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-white tracking-[-0.04em]">
+            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-[-0.04em] text-emerald-950">
               Jag tar hand om din mark.<br />
               Och jag fixar din hemsida.
             </h1>
 
-            <p class="text-lg text-emerald-100 leading-relaxed mt-6 max-w-prose">
-              Jag heter <span class="font-semibold text-white">Fredrik Wästerberg</span> och driver <span class="font-semibold text-white">Namari</span>, strax utanför Hörby.
-              Jag hjälper privatpersoner och mindre företag i Skåne med röjning, sly, riskträd och gårdsmiljöer – och jag bygger även tydliga, snabba hemsidor som gör att folk fattar vad ni erbjuder direkt.
+            <p class="text-lg text-slate-700 leading-relaxed mt-6 max-w-prose">
+              Jag heter <span class="font-semibold text-emerald-900">Fredrik Wästerberg</span> och driver <span class="font-semibold text-emerald-900">Namari</span>, strax utanför Hörby.
+              Jag hjälper privatpersoner och småföretag i Skåne med röjning, sly, riskträd och gårdsmiljö – och jag bygger tydliga, snabba hemsidor som gör att kunderna fattar direkt vad ni gör.
             </p>
 
             <div class="flex flex-wrap gap-4 mt-10">
               <a
                 href="#tjanster"
-                class="inline-flex items-center rounded-xl bg-emerald-400 text-emerald-950 font-semibold px-5 py-3 text-sm shadow hover:bg-emerald-300 transition"
+                class="inline-flex items-center rounded-xl bg-emerald-700 text-white font-semibold px-5 py-3 text-sm shadow hover:bg-emerald-600 transition"
               >
                 Se tjänster
               </a>
               <a
                 href="#kontakt"
-                class="inline-flex items-center rounded-xl border border-emerald-200/40 text-emerald-50 font-semibold px-5 py-3 text-sm shadow hover:bg-white/10 transition"
+                class="inline-flex items-center rounded-xl border border-emerald-300 text-emerald-800 font-semibold px-5 py-3 text-sm shadow hover:bg-white transition bg-white/70"
               >
                 Få prisförslag
               </a>
             </div>
 
-            <div class="flex flex-col sm:flex-row gap-6 text-sm text-emerald-200 mt-10">
+            <div class="flex flex-col sm:flex-row gap-6 text-sm text-slate-700 mt-10">
               <div class="flex items-start gap-3">
-                <div class="text-emerald-300 text-xl leading-none">✓</div>
+                <div class="text-emerald-700 text-xl leading-none">✓</div>
                 <div>
-                  <div class="font-semibold text-white">Röjning & trädfällning</div>
-                  <div class="text-emerald-200/80">Säkert utfört, inga dumma genvägar</div>
+                  <div class="font-semibold text-emerald-900">Röjning & trädfällning</div>
+                  <div class="text-slate-600">Säkert utfört, inga dumma genvägar</div>
                 </div>
               </div>
               <div class="flex items-start gap-3">
-                <div class="text-emerald-300 text-xl leading-none">✓</div>
+                <div class="text-emerald-700 text-xl leading-none">✓</div>
                 <div>
-                  <div class="font-semibold text-white">Hemsida som känns seriös</div>
-                  <div class="text-emerald-200/80">Domän, layout, kontakt – klart</div>
+                  <div class="font-semibold text-emerald-900">En hemsida som känns seriös</div>
+                  <div class="text-slate-600">Domän, layout, kontakt – klart</div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- sidokort -->
+          <!-- sidokort, ljus stil -->
           <div class="space-y-6">
-            <div class="card p-6">
-              <div class="text-xs font-semibold text-emerald-700 uppercase tracking-wide mb-2">Skog & Mark</div>
+            <div class="card p-6 bg-white/80">
+              <div class="text-xs font-semibold text-emerald-800 uppercase tracking-wide mb-2">Skog & Mark</div>
               <div class="text-lg font-bold text-emerald-900 leading-snug">
                 Röjning, sly & riskträd i Skåne
               </div>
@@ -144,13 +144,13 @@
               </p>
             </div>
 
-            <div class="card p-6">
-              <div class="text-xs font-semibold text-emerald-700 uppercase tracking-wide mb-2">Webb & Profil</div>
+            <div class="card p-6 bg-white/80">
+              <div class="text-xs font-semibold text-emerald-800 uppercase tracking-wide mb-2">Webb & Profil</div>
               <div class="text-lg font-bold text-emerald-900 leading-snug">
                 En hemsida som folk litar på
               </div>
               <p class="text-sm text-slate-700 mt-3 leading-relaxed">
-                Jag gör enkla, rena sidor åt småföretag. Ni får en lugn, proffsig presentation och era kunder hittar er lätt.
+                Jag gör rena, lugna sidor åt småföretag. Kunderna fattar vem du är, vad du gör och hur de kontaktar dig.
               </p>
             </div>
           </div>
@@ -164,7 +164,7 @@
             <div class="max-w-xl">
               <h2 class="section-title">Tjänster</h2>
               <p class="section-text mt-4">
-                Jag gör hellre ett lugnt och bra jobb än ett snabbt jobb. Du ska känna dig trygg att ringa mig igen.
+                Jag jobbar hellre lugnt och bra än snabbt. Du ska känna att du kan ringa mig igen.
               </p>
             </div>
 
@@ -180,7 +180,7 @@
 
           <div class="grid md:grid-cols-2 gap-8 mt-14">
             <!-- Naturarbete -->
-            <article class="card p-8">
+            <article class="card p-8 bg-white">
               <div class="flex items-center gap-3 text-emerald-800 font-semibold text-sm">
                 <div class="w-8 h-8 rounded-lg bg-emerald-700 text-white flex items-center justify-center text-[0.7rem] font-bold shadow">
                   🌲
@@ -212,7 +212,7 @@
             </article>
 
             <!-- Webb & Design -->
-            <article class="card p-8">
+            <article class="card p-8 bg-white">
               <div class="flex items-center gap-3 text-emerald-800 font-semibold text-sm">
                 <div class="w-8 h-8 rounded-lg bg-emerald-700 text-white flex items-center justify-center text-[0.7rem] font-bold shadow">
                   💻
@@ -246,7 +246,7 @@
         </div>
       </section>
 
-      <!-- OM MIG -->
+      <!-- OM MIG (nu med din bild) -->
       <section id="om" class="relative bg-white py-20 md:py-28">
         <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-emerald-200/40 to-transparent pointer-events-none"></div>
 
@@ -256,7 +256,7 @@
             <h2 class="section-title">Vem är jag?</h2>
 
             <p class="section-text mt-6">
-              Jag heter Fredrik, bor utanför Hörby och jag gillar när saker blir ordentligt gjorda. Inga konstigheter.
+              Jag heter Fredrik, bor strax utanför Hörby och jag gillar när saker blir ordentligt gjorda. Inga konstigheter.
               Jag lämnar inte en gårdsplan i kaos, och jag lämnar inte en hemsida som ser slarvig ut.
             </p>
 
@@ -281,12 +281,12 @@
             </div>
           </div>
 
-          <!-- bildruta -->
+          <!-- bildruta MED DIN BILD -->
           <div class="relative">
-            <div class="rounded-2xl overflow-hidden ring-1 ring-emerald-900/10 shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
+            <div class="rounded-2xl overflow-hidden ring-1 ring-emerald-900/10 shadow-[0_30px_80px_rgba(0,0,0,0.3)] bg-emerald-900/5">
               <img
-                src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1200&q=80"
-                alt="Skogsmiljö"
+                src="public/fredrik.jpg"
+                alt="Fredrik Wästerberg ute i skogen och arbetar"
                 class="w-full h-full object-cover aspect-[4/3]"
               />
             </div>
@@ -306,118 +306,118 @@
         </div>
       </section>
 
-      <!-- KONTAKT -->
-      <section id="kontakt" class="bg-emerald-950 text-emerald-50 py-20 md:py-28 relative">
+      <!-- KONTAKT (ljus istället för mörk) -->
+      <section id="kontakt" class="relative py-20 md:py-28 bg-gradient-to-br from-emerald-100 via-emerald-50 to-white text-emerald-950">
         <div
-          class="absolute inset-0 -z-10 bg-cover bg-center opacity-[0.12]"
+          class="absolute inset-0 -z-10 bg-cover bg-center opacity-[0.08]"
           style="background-image:url('https://images.unsplash.com/photo-1508979822734-efad5f5f1f1a?auto=format&fit=crop&w=1600&q=80');"
         ></div>
-        <div class="absolute inset-0 -z-10 bg-gradient-to-br from-emerald-900/70 via-emerald-950 to-black/80"></div>
+        <div class="absolute inset-0 -z-10 bg-gradient-to-br from-white/80 via-white/60 to-transparent"></div>
 
         <div class="max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-12">
           <!-- vänster: text och direktkontakt -->
           <div>
-            <div class="pill mb-4">
-              <span class="inline-block w-2 h-2 bg-emerald-300 rounded-full"></span>
+            <div class="pill mb-4 bg-emerald-700 text-white">
+              <span class="inline-block w-2 h-2 bg-emerald-200 rounded-full"></span>
               <span>Snabb kontakt</span>
             </div>
 
-            <h2 class="text-3xl md:text-4xl font-extrabold text-white leading-tight tracking-tight">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-emerald-950 leading-tight tracking-tight">
               Ska vi ta ett första snack?
             </h2>
 
-            <p class="text-emerald-100 leading-relaxed text-lg mt-5 max-w-prose">
+            <p class="text-slate-700 leading-relaxed text-lg mt-5 max-w-prose">
               Skriv vad du behöver hjälp med, eller ring direkt. Jag återkommer så fort jag kan – ofta samma dag.
             </p>
 
             <div class="mt-8 space-y-4 text-[0.95rem]">
               <div class="flex items-start gap-3">
-                <div class="text-emerald-300 font-bold text-lg leading-none">✆</div>
+                <div class="text-emerald-700 font-bold text-lg leading-none">✆</div>
                 <div>
-                  <div class="text-emerald-200/80 uppercase text-[0.7rem] tracking-wide font-semibold">Telefon</div>
-                  <a class="text-white text-base font-semibold hover:text-emerald-300" href="tel:+46761390199">0761-390199</a>
+                  <div class="text-emerald-800 uppercase text-[0.7rem] tracking-wide font-semibold">Telefon</div>
+                  <a class="text-emerald-900 text-base font-semibold hover:text-emerald-700" href="tel:+46761390199">0761-390199</a>
                 </div>
               </div>
 
               <div class="flex items-start gap-3">
-                <div class="text-emerald-300 font-bold text-lg leading-none">@</div>
+                <div class="text-emerald-700 font-bold text-lg leading-none">@</div>
                 <div>
-                  <div class="text-emerald-200/80 uppercase text-[0.7rem] tracking-wide font-semibold">E-post</div>
-                  <a class="text-white text-base font-semibold hover:text-emerald-300" href="mailto:fredrik@namari.se">fredrik@namari.se</a>
+                  <div class="text-emerald-800 uppercase text-[0.7rem] tracking-wide font-semibold">E-post</div>
+                  <a class="text-emerald-900 text-base font-semibold hover:text-emerald-700" href="mailto:fredrik@namari.se">fredrik@namari.se</a>
                 </div>
               </div>
 
               <div class="flex items-start gap-3">
-                <div class="text-emerald-300 font-bold text-lg leading-none">📍</div>
+                <div class="text-emerald-700 font-bold text-lg leading-none">📍</div>
                 <div>
-                  <div class="text-emerald-200/80 uppercase text-[0.7rem] tracking-wide font-semibold">Bas</div>
-                  <div class="text-white text-base font-semibold">Utanför Hörby, Skåne</div>
+                  <div class="text-emerald-800 uppercase text-[0.7rem] tracking-wide font-semibold">Bas</div>
+                  <div class="text-emerald-900 text-base font-semibold">Utanför Hörby, Skåne</div>
                 </div>
               </div>
             </div>
 
-            <div class="mt-8 text-xs text-emerald-300/80 leading-relaxed bg-white/5 border border-white/10 rounded-xl p-4 max-w-xs shadow-xl">
+            <div class="mt-8 text-xs text-slate-700 leading-relaxed bg-white/70 border border-emerald-200 rounded-xl p-4 shadow max-w-xs">
               Jag kommer gärna ut och tittar innan jag lämnar pris. Kostar inget i närheten.
             </div>
           </div>
 
           <!-- höger: formulär -->
-          <div class="card bg-white/10 border-white/10 text-white shadow-xl">
+          <div class="card bg-white/80 border-emerald-200/60 text-emerald-950 shadow-xl">
             <form class="p-6 sm:p-8 space-y-4 text-[0.9rem]">
               <div class="grid sm:grid-cols-2 gap-4">
                 <div class="flex flex-col gap-1">
-                  <label class="text-emerald-100 text-xs font-semibold tracking-wide uppercase">Namn</label>
+                  <label class="text-emerald-900 text-xs font-semibold tracking-wide uppercase">Namn</label>
                   <input
-                    class="rounded-lg bg-white/10 border border-white/20 px-3 py-2 text-white placeholder:text-emerald-200/50 outline-none focus:ring-2 focus:ring-emerald-400"
+                    class="rounded-lg bg-white border border-emerald-300 px-3 py-2 text-emerald-950 placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-emerald-500"
                     placeholder="Ditt namn"
                   />
                 </div>
                 <div class="flex flex-col gap-1">
-                  <label class="text-emerald-100 text-xs font-semibold tracking-wide uppercase">E-post</label>
+                  <label class="text-emerald-900 text-xs font-semibold tracking-wide uppercase">E-post</label>
                   <input
                     type="email"
-                    class="rounded-lg bg-white/10 border border-white/20 px-3 py-2 text-white placeholder:text-emerald-200/50 outline-none focus:ring-2 focus:ring-emerald-400"
+                    class="rounded-lg bg-white border border-emerald-300 px-3 py-2 text-emerald-950 placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-emerald-500"
                     placeholder="din@mail.se"
                   />
                 </div>
               </div>
 
               <div class="flex flex-col gap-1">
-                <label class="text-emerald-100 text-xs font-semibold tracking-wide uppercase">Telefon</label>
+                <label class="text-emerald-900 text-xs font-semibold tracking-wide uppercase">Telefon</label>
                 <input
-                  class="rounded-lg bg-white/10 border border-white/20 px-3 py-2 text-white placeholder:text-emerald-200/50 outline-none focus:ring-2 focus:ring-emerald-400"
+                  class="rounded-lg bg-white border border-emerald-300 px-3 py-2 text-emerald-950 placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-emerald-500"
                   placeholder="07.."
                 />
               </div>
 
               <div class="flex flex-col gap-1">
-                <label class="text-emerald-100 text-xs font-semibold tracking-wide uppercase">Ämne</label>
+                <label class="text-emerald-900 text-xs font-semibold tracking-wide uppercase">Ämne</label>
                 <select
-                  class="rounded-lg bg-white/10 border border-white/20 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-emerald-400"
+                  class="rounded-lg bg-white border border-emerald-300 px-3 py-2 text-emerald-950 outline-none focus:ring-2 focus:ring-emerald-500"
                 >
-                  <option class="text-black">Röjning / Träd</option>
-                  <option class="text-black">Hemsida</option>
-                  <option class="text-black">Annat</option>
+                  <option>Röjning / Träd</option>
+                  <option>Hemsida</option>
+                  <option>Annat</option>
                 </select>
               </div>
 
               <div class="flex flex-col gap-1">
-                <label class="text-emerald-100 text-xs font-semibold tracking-wide uppercase">Meddelande</label>
+                <label class="text-emerald-900 text-xs font-semibold tracking-wide uppercase">Meddelande</label>
                 <textarea
                   rows="4"
-                  class="rounded-lg bg-white/10 border border-white/20 px-3 py-2 text-white placeholder:text-emerald-200/50 outline-none focus:ring-2 focus:ring-emerald-400"
+                  class="rounded-lg bg-white border border-emerald-300 px-3 py-2 text-emerald-950 placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-emerald-500"
                   placeholder="Berätta kort vad du behöver hjälp med..."
                 ></textarea>
               </div>
 
               <button
-                class="w-full rounded-xl bg-emerald-400 text-emerald-950 font-semibold px-5 py-3 text-sm shadow hover:bg-emerald-300 transition"
+                class="w-full rounded-xl bg-emerald-700 text-white font-semibold px-5 py-3 text-sm shadow hover:bg-emerald-600 transition"
                 type="button"
               >
                 Skicka förfrågan
               </button>
 
-              <p class="text-[0.7rem] text-emerald-300/70 leading-relaxed text-center">
+              <p class="text-[0.7rem] text-slate-600 leading-relaxed text-center">
                 Jag svarar så fort jag kan – ofta samma dag.
               </p>
             </form>
@@ -426,14 +426,14 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-black text-emerald-200 text-xs">
+    <!-- FOOTER (mörkgrön istället för svart) -->
+    <footer class="bg-emerald-900 text-emerald-100 text-xs">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="text-center md:text-left leading-relaxed">
           © <span id="year"></span> Namari – Fredrik Wästerberg<br />
-          F-skatt • Försäkrad • Skåne
+          F-skatt • Försäkrad • Skåne (utgår Hörby)
         </div>
-        <nav class="flex items-center gap-6 text-emerald-400 font-medium">
+        <nav class="flex items-center gap-6 text-emerald-200 font-medium">
           <a class="hover:text-white" href="#tjanster">Tjänster</a>
           <a class="hover:text-white" href="#om">Om</a>
           <a class="hover:text-white" href="#kontakt">Kontakt</a>
