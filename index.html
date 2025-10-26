@@ -24,6 +24,7 @@
     </style>
 
     <script>
+      // smidig scroll till sektioner
       document.addEventListener("click", (e) => {
         const link = e.target.closest("a[href^='#']");
         if (!link) return;
@@ -38,7 +39,7 @@
   </head>
 
   <body class="bg-emerald-50 text-slate-900 antialiased">
-    <!-- NAVBAR (ljus istället för mörk nu) -->
+    <!-- NAVBAR (ljus) -->
     <header class="fixed top-0 left-0 right-0 z-50 border-b border-emerald-900/10 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 text-emerald-900 shadow-sm">
       <div class="max-w-6xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6">
         <!-- Logo + namn -->
@@ -70,15 +71,14 @@
     </header>
 
     <main class="pt-16">
-      <!-- HERO (ljusare version) -->
+      <!-- HERO (ljus) -->
       <section id="home" class="relative isolate text-emerald-950 bg-gradient-to-b from-emerald-100 via-emerald-50 to-emerald-50">
-        <!-- bakgrundsbild ljus skogston -->
+        <!-- bakgrund -->
         <div
           class="absolute inset-0 -z-10 bg-cover bg-center opacity-20"
           style="background-image:url('https://images.unsplash.com/photo-1508766206392-8bd5cf550d1b?auto=format&fit=crop&w=1600&q=80');"
         ></div>
 
-        <!-- soft overlay -->
         <div class="absolute inset-0 -z-10 bg-gradient-to-r from-white/80 via-white/60 to-transparent"></div>
 
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
@@ -131,7 +131,7 @@
             </div>
           </div>
 
-          <!-- sidokort, ljus stil -->
+          <!-- sidokort -->
           <div class="space-y-6">
             <div class="card p-6 bg-white/80">
               <div class="text-xs font-semibold text-emerald-800 uppercase tracking-wide mb-2">Skog & Mark</div>
@@ -246,7 +246,7 @@
         </div>
       </section>
 
-      <!-- OM MIG (nu med din bild) -->
+      <!-- OM MIG (med din bild) -->
       <section id="om" class="relative bg-white py-20 md:py-28">
         <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-emerald-200/40 to-transparent pointer-events-none"></div>
 
@@ -285,7 +285,7 @@
           <div class="relative">
             <div class="rounded-2xl overflow-hidden ring-1 ring-emerald-900/10 shadow-[0_30px_80px_rgba(0,0,0,0.3)] bg-emerald-900/5">
               <img
-                src="public/fredrik.jpg"
+                src="public/fredrik.JPG"
                 alt="Fredrik Wästerberg ute i skogen och arbetar"
                 class="w-full h-full object-cover aspect-[4/3]"
               />
@@ -306,7 +306,7 @@
         </div>
       </section>
 
-      <!-- KONTAKT (ljus istället för mörk) -->
+      <!-- KONTAKT (ljus) -->
       <section id="kontakt" class="relative py-20 md:py-28 bg-gradient-to-br from-emerald-100 via-emerald-50 to-white text-emerald-950">
         <div
           class="absolute inset-0 -z-10 bg-cover bg-center opacity-[0.08]"
@@ -361,21 +361,31 @@
             </div>
           </div>
 
-          <!-- höger: formulär -->
+          <!-- höger: formulär med Formspree -->
           <div class="card bg-white/80 border-emerald-200/60 text-emerald-950 shadow-xl">
-            <form class="p-6 sm:p-8 space-y-4 text-[0.9rem]">
+            <form
+              class="p-6 sm:p-8 space-y-4 text-[0.9rem]"
+              action="HÄR_SKALL_DIN_FORMSPREE_URL_IN"
+              method="POST"
+            >
               <div class="grid sm:grid-cols-2 gap-4">
                 <div class="flex flex-col gap-1">
-                  <label class="text-emerald-900 text-xs font-semibold tracking-wide uppercase">Namn</label>
+                  <label class="text-emerald-900 text-xs font-semibold tracking-wide uppercase" for="namn">Namn</label>
                   <input
+                    id="namn"
+                    name="namn"
+                    required
                     class="rounded-lg bg-white border border-emerald-300 px-3 py-2 text-emerald-950 placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-emerald-500"
                     placeholder="Ditt namn"
                   />
                 </div>
                 <div class="flex flex-col gap-1">
-                  <label class="text-emerald-900 text-xs font-semibold tracking-wide uppercase">E-post</label>
+                  <label class="text-emerald-900 text-xs font-semibold tracking-wide uppercase" for="epost">E-post</label>
                   <input
+                    id="epost"
+                    name="epost"
                     type="email"
+                    required
                     class="rounded-lg bg-white border border-emerald-300 px-3 py-2 text-emerald-950 placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-emerald-500"
                     placeholder="din@mail.se"
                   />
@@ -383,16 +393,20 @@
               </div>
 
               <div class="flex flex-col gap-1">
-                <label class="text-emerald-900 text-xs font-semibold tracking-wide uppercase">Telefon</label>
+                <label class="text-emerald-900 text-xs font-semibold tracking-wide uppercase" for="telefon">Telefon</label>
                 <input
+                  id="telefon"
+                  name="telefon"
                   class="rounded-lg bg-white border border-emerald-300 px-3 py-2 text-emerald-950 placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-emerald-500"
                   placeholder="07.."
                 />
               </div>
 
               <div class="flex flex-col gap-1">
-                <label class="text-emerald-900 text-xs font-semibold tracking-wide uppercase">Ämne</label>
+                <label class="text-emerald-900 text-xs font-semibold tracking-wide uppercase" for="amne">Ämne</label>
                 <select
+                  id="amne"
+                  name="amne"
                   class="rounded-lg bg-white border border-emerald-300 px-3 py-2 text-emerald-950 outline-none focus:ring-2 focus:ring-emerald-500"
                 >
                   <option>Röjning / Träd</option>
@@ -402,17 +416,23 @@
               </div>
 
               <div class="flex flex-col gap-1">
-                <label class="text-emerald-900 text-xs font-semibold tracking-wide uppercase">Meddelande</label>
+                <label class="text-emerald-900 text-xs font-semibold tracking-wide uppercase" for="meddelande">Meddelande</label>
                 <textarea
+                  id="meddelande"
+                  name="meddelande"
                   rows="4"
+                  required
                   class="rounded-lg bg-white border border-emerald-300 px-3 py-2 text-emerald-950 placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-emerald-500"
                   placeholder="Berätta kort vad du behöver hjälp med..."
                 ></textarea>
               </div>
 
+              <!-- gömd info för dig -->
+              <input type="hidden" name="källa" value="Kontaktformulär på namari.se" />
+
               <button
                 class="w-full rounded-xl bg-emerald-700 text-white font-semibold px-5 py-3 text-sm shadow hover:bg-emerald-600 transition"
-                type="button"
+                type="submit"
               >
                 Skicka förfrågan
               </button>
@@ -426,7 +446,7 @@
       </section>
     </main>
 
-    <!-- FOOTER (mörkgrön istället för svart) -->
+    <!-- FOOTER -->
     <footer class="bg-emerald-900 text-emerald-100 text-xs">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="text-center md:text-left leading-relaxed">
